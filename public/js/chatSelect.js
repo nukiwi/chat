@@ -16,7 +16,8 @@ var myFunction = async function () {
 
     // get all previous messages
     document.getElementById('messages').innerHTML = ''
-    const texts = await axios.get('http://localhost:3000/chatRoom/' + chatRoom)
+    const url = window.location.href
+    const texts = await axios.get(url + 'chatRoom/' + chatRoom)
 
     texts.data.forEach(element => {
         var li = document.createElement('li');

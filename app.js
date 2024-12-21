@@ -32,7 +32,7 @@ var chatRoomRouter = require('./routes/chatRoom')
 
 // app setup
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const httpServer = createServer(app)
 
 app.set('views', path.join(__dirname, 'views')) // views path
