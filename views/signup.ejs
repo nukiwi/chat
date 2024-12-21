@@ -1,0 +1,49 @@
+<%- include('header') -%>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center text-dark mt-5 fw-bold">Sign up</h2>
+                <div class="card my-5">
+
+                    <form class="card-body cardbody-color p-lg-5" action="/signup" method="post" enctype="multipart/form-data">
+
+                        <div class="text-center" id="imageContainer" onclick="changeProfileImage()">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRoPIEL3k8tWlxnqIoLsk0CpXL6MZy7SxkmK9CaNf6kU1hb8ou5tEK4tkx2zrv791t1LslT_cTk1Hy5iwhdJEvVZYJ7LfRErOPr-o0vAjwiFsjJAg9orGVMM9xnitgPYE0D0UrO8-FvMc/s800/animal_mark09_tora.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" id="profileImage" width="200px" alt="profile">
+
+                            <span id="pencil">
+                                <%- include ("../public/img/pencil.svg")%>
+                            </span>
+                            <input type="file" name="image" id="imageForm" accept="image/png, image/jpeg">
+                        </div>
+
+                        <div class="mb-3">
+                            <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="User Name">
+                        </div>
+                        <div class="mb-3">
+                            <input name="password" type="password" class="form-control" id="password" placeholder="password">
+                        </div>
+
+                        <% if (error.length > 0) { %>
+                        <div class="alert alert-danger">
+                            <%= error %>
+                        </div>
+                        <% } %>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-color px-5 mb-5 w-100">Sign up</button>
+                        </div>
+                        <div id="emailHelp" class="form-text text-center mb-5 text-dark">Already
+                            Registered? <a href="/login" class="text-dark fw-bold"> Login</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/js/profileImage.js"></script>
+<%- include('footer') -%>

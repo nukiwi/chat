@@ -1,0 +1,17 @@
+<div class="z-3 end-0 position-absolute w-25" id="notification">
+    <% if (success.length > 0) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+
+    <% if (error.length > 0) { %>
+    <div class="alert alert-danger">
+        <%= error %>
+    </div>
+    <% } %>
+</div>
+
+<script>
+    window.setTimeout("document.getElementById('notification').style.display='none';", 2000);
+</script>

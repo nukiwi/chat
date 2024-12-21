@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand ps-3" href="/">
+            <h3>
+                <%- include ("../public/img/favicon.svg") %>
+                <!-- Chat -->
+            </h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="ms-auto">
+                <% if (user) { %>
+                <li class="nav-item dropdown list-unstyled">
+                    <a class="nav-link" data-bs-toggle="dropdown">
+                        <img src="/images/<%= user%>" id="profile-pic-navbar" alt="profile picture" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">
+                                <%- include ("../public/img/profile.svg") %>
+                                Profile
+                            </a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/logout">
+                                <%- include ("../public/img/logout.svg") %>
+                                Logout
+                            </a></li>
+                    </ul>
+                </li>
+                <% }else { %>
+                <a class="nav-link" href="/login">
+                    <%- include ("../public/img/user.svg") %>
+                </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

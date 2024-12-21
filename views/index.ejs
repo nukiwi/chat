@@ -1,0 +1,39 @@
+<%- include('header') -%>
+
+<div class="container-fluid d-flex flex-column p-0">
+    <%- include('navbar') -%>
+    <%- include('notification') -%>
+
+    <div class="row flex-grow-1">
+
+        <div class="col-md-4 border pe-0 d-flex flex-column">
+            <div class="col" id="contacts">
+                <% contacts.forEach(contact => { %>
+                <span class="border d-flex flex-wrap align-items-center p-3 contacts" data-chatroom="<%= contact.dataValues.chatRoom%>">
+                    <img src="/images/<%= contact.dataValues.contact%>" id="profile-pic-navbar" alt="profile picture" class="rounded-circle">
+                    <div class="col p-3 contact-name"><%=contact.dataValues.contact%></div>
+                </span>
+                <% }) %>
+            </div>
+            <div class="col-sm-3 border self-align-end p-3 d-flex justify-content-center w-100">
+                <button type="button" class="btn btn-outline-dark w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <%- include ("../public/img/addContact.svg") %>
+                    Add contact
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-8 d-flex flex-column" id="mainChat">
+            <%- include('chatMenu') -%>
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('contactModal') -%>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chatSelect.js"></script>
+
+<%- include('footer') -%>
